@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  root to: 'posts#index'
   get 'comments/index'
   get 'goods/index'
   get 'follows/index'
