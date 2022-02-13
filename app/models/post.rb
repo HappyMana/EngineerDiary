@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
   has_many :goods
-  has_many :comments
   belong_to :user
-  has_many :users, through: :comments
+  belong_to :tag
   has_many :users, through: :goods
 end
 w
