@@ -1,0 +1,13 @@
+<h1>Tags#new</h1>
+<p>Find me in app/views/tags/new.html.erb</p>
+
+<p><%= link_to "トップへ", posts_path %></p>
+<%= form_with model: @tag do |form| %>
+  <%=form.label :タグ名%>
+  <%= form.text_field :tag_name %>
+  <%= form.submit :追加 %>
+<% end %>
+
+<%= link_to :back do %>
+  <button>戻る</button>
+<% end %>
