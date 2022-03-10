@@ -3,10 +3,16 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  root to: 'posts#index'
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  get 'goods/index'
-  get 'follows/index'
 
+  resources :posts do
+    resource :likes, only: [:create, :destroy]
+    collection do
+      get :search
+    end
+  end
+  resources :tags, only: [:new, :create]
+  resources :users, only: [:show]
+  root 'posts#index'
+  # get '/search' to 'posts#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
