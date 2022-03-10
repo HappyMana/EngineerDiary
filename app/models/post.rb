@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  has_many :goods
-  belong_to :user
-  belong_to :tag
-  has_many :users, through: :goods
+  has_many :likes
+  belongs_to :user
+  belongs_to :tag
+  has_many :users, through: :likes
+
 end
-w

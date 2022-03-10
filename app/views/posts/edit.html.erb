@@ -1,2 +1,19 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+<%= form_with model: @post do |form| %>
+  <%=form.label :タイトル%>
+  <%= form.text_field :title %>
+  <%=form.label :テキスト%>
+  <%= form.text_field :text %>
+  <%= form.label :URL %>
+  <%= form.text_field :url %>
+  <%= form.select :tag_id, [["Swift", 1], ["React", 2], ["Ruby on Rails", 3], ["Kotlin", 4]], include_blank: "タブ" %>
+  <%= form.radio_button :is_public, :true %>
+  <%= form.label :公開 %>
+  <%= form.radio_button :is_public, :false %>
+  <%= form.label :非公開 %>
+  <%= form.submit :投稿 %>
+<% end %>
+
+<p><%= button_to "もどる", post_path(@post.id), method: :get %></p>

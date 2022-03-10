@@ -1,2 +1,21 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
+
+<p>title:<%= @post.title %></p>
+<p>text:<%= @post.text %></p>
+<p>url:<%= Rinku.auto_link(@post.url, :all, 'target="_blank"').html_safe %></p>
+<p>tag:<%= @post.tag_id %></p>
+<p>user_id:<%= @post.user_id %></p>
+
+<% if current_user.already_liked?(@post.id) %>
+  <%= button_to "いいねを取り消す", post_likes_path(@post), method: :delete %>
+<% else %>
+  <%= button_to "いいね", post_likes_path(@post.id), method: :post %>
+<% end %>
+<p>いいね件数: <%= @post.likes.count %></p>
+
+<% if @post.user_id == current_user.id %>
+  <p><%= button_to "編集", edit_post_path(@post), method: :get %></p>
+  <p><%= button_to "削除", post_path(@post), method: :delete %></p>
+<% end %>
+<p><%= button_to "もどる", posts_path(@post), method: :get %></p>

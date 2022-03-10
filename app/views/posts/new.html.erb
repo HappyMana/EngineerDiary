@@ -1,2 +1,24 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
+
+<%= form_with model: @post do |form| %>
+  <%=form.label :タイトル%>
+  <%= form.text_field :title %>
+  <%=form.label :テキスト%>
+  <%= form.text_field :text %>
+  <%= form.label :URL %>
+  <%= form.text_field :url %>
+  <%= form.collection_select( :tag_id,  Tag.all, :id, :tag_name, include_blank: "タグ") %>
+  <%= form.radio_button :is_public, :true %>
+  <%= form.label :公開 %>
+  <%= form.radio_button :is_public, :false %>
+  <%= form.label :非公開 %>
+  <%= form.radio_button :is_read, :true %>
+  <%= form.label :読んだ %>
+  <%= form.radio_button :is_read, :false %>
+  <%= form.label :まだ %>
+  <%= form.submit :投稿 %>
+<% end %>
+<p><%= button_to "タグを新規作成する", {controller: 'tags', action: 'new'}, {method: :get} %></p>
+
+<p><%= button_to "もどる", posts_path(@post.id), {method: :get} %></p>
