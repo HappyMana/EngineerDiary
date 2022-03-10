@@ -1,0 +1,152 @@
+current directory: /Users/mana/Ruby/EngineerDiary/vendor/bundle/ruby/2.7.0/gems/rinku-2.0.6/ext/rinku
+/Users/mana/.rbenv/versions/2.7.4/bin/ruby -I /Users/mana/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20220214-8749-wcsu5n.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mana/Ruby/EngineerDiary/vendor/bundle/ruby/2.7.0/gems/rinku-2.0.6/ext/rinku
+make "DESTDIR=" clean
+
+current directory: /Users/mana/Ruby/EngineerDiary/vendor/bundle/ruby/2.7.0/gems/rinku-2.0.6/ext/rinku
+make "DESTDIR="
+compiling autolink.c
+compiling buffer.c
+compiling rinku.c
+compiling rinku_rb.c
+rinku_rb.c:60:4: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                        rb_intern("call"), 1, rb_link);
+                        ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:23: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                      ^
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:2689:27: note: expanded from macro 'rb_funcall'
+        rb_funcallv(recv, mid, \
+                          ^~~
+rinku_rb.c:60:4: note: '{' token is here
+                        rb_intern("call"), 1, rb_link);
+                        ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1832:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    {                                                   \
+    ^
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:2689:27: note: expanded from macro 'rb_funcall'
+        rb_funcallv(recv, mid, \
+                          ^~~
+rinku_rb.c:60:4: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                        rb_intern("call"), 1, rb_link);
+                        ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1837:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    }
+    ^
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:2689:27: note: expanded from macro 'rb_funcall'
+        rb_funcallv(recv, mid, \
+                          ^~~
+rinku_rb.c:60:4: note: ')' token is here
+                        rb_intern("call"), 1, rb_link);
+                        ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:56: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                                                       ^
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:2689:27: note: expanded from macro 'rb_funcall'
+        rb_funcallv(recv, mid, \
+                          ^~~
+rinku_rb.c:174:19: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                if (mode_sym == rb_intern("all"))
+                                ^~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:23: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                      ^
+rinku_rb.c:174:19: note: '{' token is here
+                if (mode_sym == rb_intern("all"))
+                                ^~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1832:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    {                                                   \
+    ^
+rinku_rb.c:174:19: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                if (mode_sym == rb_intern("all"))
+                                ^~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1837:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    }
+    ^
+rinku_rb.c:174:19: note: ')' token is here
+                if (mode_sym == rb_intern("all"))
+                                ^~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:56: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                                                       ^
+rinku_rb.c:176:24: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                else if (mode_sym == rb_intern("email_addresses"))
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:23: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                      ^
+rinku_rb.c:176:24: note: '{' token is here
+                else if (mode_sym == rb_intern("email_addresses"))
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1832:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    {                                                   \
+    ^
+rinku_rb.c:176:24: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                else if (mode_sym == rb_intern("email_addresses"))
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1837:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    }
+    ^
+rinku_rb.c:176:24: note: ')' token is here
+                else if (mode_sym == rb_intern("email_addresses"))
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:56: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                                                       ^
+rinku_rb.c:178:24: warning: '(' and '{' tokens introducing statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                else if (mode_sym == rb_intern("urls"))
+                                     ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:23: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                      ^
+rinku_rb.c:178:24: note: '{' token is here
+                else if (mode_sym == rb_intern("urls"))
+                                     ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1832:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    {                                                   \
+    ^
+rinku_rb.c:178:24: warning: '}' and ')' tokens terminating statement expression appear in different macro expansion contexts [-Wcompound-token-split-by-macro]
+                else if (mode_sym == rb_intern("urls"))
+                                     ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:24: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1837:5: note: expanded from macro 'RUBY_CONST_ID_CACHE'
+    }
+    ^
+rinku_rb.c:178:24: note: ')' token is here
+                else if (mode_sym == rb_intern("urls"))
+                                     ^~~~~~~~~~~~~~~~~
+/Users/mana/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/ruby.h:1847:56: note: expanded from macro 'rb_intern'
+        __extension__ (RUBY_CONST_ID_CACHE((ID), (str))) : \
+                                                       ^
+8 warnings generated.
+compiling utf8.c
+linking shared-object rinku.bundle
+
+current directory: /Users/mana/Ruby/EngineerDiary/vendor/bundle/ruby/2.7.0/gems/rinku-2.0.6/ext/rinku
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 rinku.bundle ./.gem.20220214-8749-1vno43p
