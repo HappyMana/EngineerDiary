@@ -4,11 +4,4 @@
 <p>name : <%= @user.name %></p>
 <hr>
 
-<% @posts.each do |post| %>
-  <p>title : <%= link_to post.title, post_path(post.id) %></p>
-  <p>URL : <%= Rinku.auto_link(post.url, :all, 'target="_blank"').html_safe %></p>
-  <p>tag_id : <%= post.tag_id %></p>
-  <p>日付 : <%= post.created_at %></p>
-  <p>投稿者 : <%= post.user_id %></p>
-  <hr>
-<% end %>
+<%= render "layouts/post" %>
