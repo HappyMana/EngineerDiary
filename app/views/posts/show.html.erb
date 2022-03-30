@@ -2,12 +2,12 @@
 
 <div class="flex">
     <!-- This is an example component -->
-    <div class='flex from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br mx-auto w-full h-full mt-10'>
+    <div class='flex from-teal-100 via-teal-300 to-teal-500 mx-auto w-full h-full mt-10'>
         <article class="w-full h-auto max-w-lg mx-auto break-inside p-6 rounded-xl bg-white flex flex-col bg-clip-border">
             <h2 class="text-3xl font-extrabold mb-2">
                 <%= @post.title %>
             </h2>
-            <div class="mb-2">
+            <div class="mb-2 prose">
                 <%= markdown(@post.text) %>
             </div>
             <div class='border-2 border-gray-300 rounded-md cursor-pointer mb-5'>
