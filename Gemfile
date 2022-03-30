@@ -69,3 +69,6 @@ gem 'mini_magick'
 gem 'redcarpet'
 
 gem 'coderay'
+
+# tailwind
+gem 'tailwindcss-rails', '~>2.0'
