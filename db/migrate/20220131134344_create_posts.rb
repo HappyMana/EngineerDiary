@@ -4,6 +4,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title, null: false, default: ""
       t.string :text, null: true, default: ""
       t.string :url, null: false, default: ""
+      t.text :site_title, :limit => 511
+      t.binary :site_img, :limit => 2048
       t.references :tag, foreign_key: true, null: true
       t.boolean :is_public, null: false, default: true
       t.boolean :is_read, null: false, default: true

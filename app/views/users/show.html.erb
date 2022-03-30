@@ -1,7 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<p>name : <%= @user.name %></p>
-<hr>
+<div class="flex">
+  <% if current_user.user_img.attached? %>
+    <%= image_tag current_user.user_img, class: "h-12 w-12 rounded-full max-w-none flex flex-row" %>
+  <% else %>
+    <img src="/default_user.jpeg" alt="" class="h-12 w-12 rounded-full max-w-none flex flex-row">
+  <% end %>
+  <%= current_user.name %>
+</div>
+<%= form_with url: search_users_path, method: :get, local: :true do |form| %>
+  <%# <%= form.select :sort_id, [["更新新しい順", "desc"], ["更新古い順", "asc"], ["いいね順", "like"]], include_blank: "並べ順" %>
+  <%= form.collection_select( :tag_id, Tag.all, :id, :tag_name, include_blank: "タグ") %>
+  <%# <%= form.select :is_read, [["もう読んだ", true], ["まだ読んでない", false]] %>
+  <%= form.submit :検索, class: "px-2 py-1 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500" %>
+<% end %>
+<%= button_to "ユーザー情報の編集", edit_user_registration_path(current_user.id), {method: :get} %>
 
 <%= render "layouts/post" %>
