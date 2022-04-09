@@ -12,8 +12,6 @@
                   <%= post.title.truncate(17, omission: '…') %>
                 </div>
               </div>
-                <%# TODO 画像をDBから取得し、表示する %>
-                <img class="h-6 w-6 rounded-full" src="/default_user.jpeg">
               <div class='font-medium text-sm border-2 border-gray-300 rounded-md cursor-pointer mb-5'>
                 <%= image_tag post.site_img, class: "rounded" %>
                 <%= post.site_title.truncate(50, omission: '…') %>
@@ -21,6 +19,11 @@
               <div class="flex">
                 <div class="flex flex-row justify-start">
                   <div class='text-sm border-2 rounded-full border-pink-600 cursor-pointer items-center mr-2'>
+                  <% if post.user.user_img.attached? %>
+                    <%= image_tag post.user.user_img, class: "h-6 w-6 rounded-full max-w-none" %>
+                  <% else %>
+                    <img src="/default_user.jpeg" alt="" class="h-6 w-6 rounded-full max-w-none">
+                  <% end %>
                   </div>
                   <div  class="flex flex-row">
                     <%= post.user.name %>

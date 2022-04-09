@@ -1,5 +1,9 @@
 <div class="flex">
+  <% if current_user.user_img.attached? %>
+    <%= image_tag current_user.user_img, class: "h-12 w-12 rounded-full max-w-none flex flex-row" %>
+  <% else %>
     <img src="/default_user.jpeg" alt="" class="h-12 w-12 rounded-full max-w-none flex flex-row">
+  <% end %>
   <%= current_user.name %>
 </div>
 <%= form_with url: search_users_path, method: :get, local: :true do |form| %>
