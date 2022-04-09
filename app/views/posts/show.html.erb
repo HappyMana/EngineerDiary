@@ -1,14 +1,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
 <div class="flex">
-    <!-- This is an example component -->
-    <div class='flex from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br mx-auto w-full h-full mt-10'>
+    <div class='flex from-teal-100 via-teal-300 to-teal-500 mx-auto w-full h-full mt-10'>
         <article class="w-full h-auto max-w-lg mx-auto break-inside p-6 rounded-xl bg-white flex flex-col bg-clip-border">
             <h2 class="text-3xl font-extrabold mb-2">
                 <%= @post.title %>
             </h2>
-            <div class="mb-2">
-                <%= @post.text %>
+            <div class="mb-2 prose">
+                <%= markdown(@post.text) %>
             </div>
             <div class='border-2 border-gray-300 rounded-md cursor-pointer mb-5'>
                 <a href=<%= @post.url %>>
@@ -19,7 +18,11 @@
             <div class="flex items-center">
                 <div class="flex">
                     <a class="inline-block mr-4" href="#">
+                    <% if @post.user.user_img.attached? %>
+                        <%= image_tag @post.user.user_img, class: "h-12 w-12 rounded-full max-w-none" %>
+                    <% else %>
                         <img src="/default_user.jpeg" alt="" class="h-12 w-12 rounded-full max-w-none">
+                    <% end %>
                     </a>
                     <div class="flex flex-col">
                     <div>

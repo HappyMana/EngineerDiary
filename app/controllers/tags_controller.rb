@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   def new
     @tag = Tag.new
+    flash[:alert] = "tag_new"
   end
 
   def create
