@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  has_many :likes
+  has_many :likes, dependent: :destroy
   belongs_to :user
   belongs_to :tag
-  has_many :users, through: :likes
+  has_many :liked_users, through: :likes
 
 end
