@@ -73,7 +73,6 @@ class PostsController < ApplicationController
       require 'nokogiri'
 
       target_url = url
-      p "------#{target_url}"
       charset = nil
       html = open(target_url) do |f|
         charset = f.charset
@@ -81,23 +80,20 @@ class PostsController < ApplicationController
       end
 
       contents = Nokogiri::HTML(html, nil, charset)
-      p "------#{contents}"
+
       # site title
       if contents.css('//meta[property="og:title"]/@content').empty?
         site_title = contents.title.to_s
       else
         site_title = contents.css('//meta[property="og:title"]/@content').to_s
       end
-      p "------#{site_title}"
 
       # site image
       if contents.css('//meta[property="og:image"]/@content').nil?
         site_img = 'default_ogp_image.png'
-        p "---画像ない"
       else
         site_img =  contents.css('//meta[property="og:image"]/@content').to_s
       end
-      p "------#{site_img}"
 
       return site_title, site_img
     end
