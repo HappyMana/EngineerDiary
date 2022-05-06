@@ -9,6 +9,7 @@ class TagsController < ApplicationController
     if @tag.save
       redirect_to controller: :posts, action: :new
     else
+      flash.now[:alert] = "タグの生成に失敗しました"
       render "new"
     end
   end
