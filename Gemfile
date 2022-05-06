@@ -72,3 +72,6 @@ gem 'coderay'
 
 # tailwind
 gem 'tailwindcss-rails', '~>2.0'
+
+# 環境変数管理
+gem 'dotenv-rails'
