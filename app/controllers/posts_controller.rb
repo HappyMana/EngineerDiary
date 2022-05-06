@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to action: "index"
     else
-      flash[:alert] = "エラー：#{@post.errors.full_messages}"
+      flash.now[:alert] = "投稿に失敗しました"
       render "new"
     end
   end
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
-      flash[:alert] = "エラー：#{@post.errors.full_messages}"
+      flash.now[:alert] = "更新に失敗しました"
       render "edit"
     end
   end
