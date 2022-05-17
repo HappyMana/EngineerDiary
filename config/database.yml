@@ -52,4 +52,5 @@ production:
   <<: *default
   database: EngineerDiary_production
   username: EngineerDiary
-  password: <%= ENV['ENGINEERDIARY_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  url: <%= ENV['CLEARDB_DATABASE_URL']&.sub(/\Amysql/, 'mysql2') %>
