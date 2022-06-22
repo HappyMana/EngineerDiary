@@ -42,7 +42,7 @@
                         <% end %>
                     </span>
                     <span class="mr-2">
-                    <% if current_user.already_liked(@post.id, current_user.id) %>
+                    <% if current_user.already_liked?(@post.id, current_user.id) %>
                         <%= link_to "", post_likes_path(@post), method: :delete, class: "fas fa-heart fa-lg" %>
                     <% else %>
                         <%= link_to "", post_likes_path(@post.id), method: :post, class: "far fa-heart fa-lg" %>

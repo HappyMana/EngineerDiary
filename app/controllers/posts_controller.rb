@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(is_public: true).or(Post.where(user_id: current_user.id)).order("created_at DESC").page(params[:page]).per(9)
+    @posts = Post.includes(:user, :tag).where(is_public: true).or(Post.where(user_id: current_user.id)).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def show
     @post = Post.find(params[:id])
-    @user = User.find(current_user.id)
     @posts = Post.where(tag_id: @post.tag_id).page(params[:page]).per(5)
   end
 
