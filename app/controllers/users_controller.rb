@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def likes
-    @posts = Post.joins(:likes).where(user_id: current_user.id).page(params[:page]).per(9)
+    @posts = Post.includes(:likes).where(likes: {user_id: current_user.id}).page(params[:page]).per(9)
   end
 
   def show
