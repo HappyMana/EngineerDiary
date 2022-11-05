@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_27_053527) do
+ActiveRecord::Schema.define(version: 2022_10_27_103144) do
 
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_03_27_053527) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2022_03_27_053527) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -49,29 +49,37 @@ ActiveRecord::Schema.define(version: 2022_03_27_053527) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "text", default: ""
     t.string "url", default: "", null: false
     t.text "site_title"
     t.binary "site_img", limit: 2048
-    t.bigint "tag_id"
     t.boolean "is_public", default: true, null: false
     t.boolean "is_read", default: true, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tag_id"], name: "index_posts_on_tag_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "tags", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "taggings", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id", "tag_id"], name: "index_taggings_on_post_id_and_tag_id", unique: true
+    t.index ["post_id"], name: "index_taggings_on_post_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "user_img", default: "/default_user.jpeg", null: false
     t.string "email", default: "", null: false
@@ -89,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_03_27_053527) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "posts", "tags"
   add_foreign_key "posts", "users"
+  add_foreign_key "taggings", "posts"
+  add_foreign_key "taggings", "tags"
 end

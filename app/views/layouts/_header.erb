@@ -33,6 +33,12 @@
           </li>
       </ul>
     </section>
+    <% else %>
+      <div class="group focus:ring focus:ring-purple-500 focus:ring-opacity-25 outline-none rounded-lg" style="color: #f3f3f3">
+        <%= link_to new_user_session_path do %>
+          Sign in
+        <% end %>
+      </div>
     <% end %>
   </div>
 </nav>

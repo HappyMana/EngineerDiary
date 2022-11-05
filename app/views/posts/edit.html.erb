@@ -18,7 +18,12 @@
       <%= form.url_field :url, class: "p-2 shadow rounded-lg bg-gray-100 outline-none focus:bg-gray-200" %>
     </div>
 
-      <%= form.collection_select( :tag_id,  Tag.all, :id, :tag_name, include_blank: "タグ") %>
+    <div class="flex-col flex py-3">
+      <%= form.fields_for :tags do |tf| %>
+        <%= tf.label :tag_name, "タグ"  %>
+        <%= tf.text_field :tag_name, id:"formTagInput" %>
+      <% end %>
+    </div>
 
     <div class="flex justify-center">
       <div class="form-check form-check-inline">
