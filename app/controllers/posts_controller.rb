@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     if params[:tag_id] == ""
       @posts = Post.where(is_public: true).or(Post.where(user_id: current_user.id)).limit(100).order("created_at DESC").page(params[:page]).per(9)
     else
-      @posts = Post.where(tag_id: params[:tag_id], is_public: true).or(Post.where(user_id: current_user.id)).limit(100).order("created_at DESC").page(params[:page]).per(9)
+      @posts = Post.where(tag_id: params[:tag_id], is_public: true).limit(100).order("created_at DESC").page(params[:page]).per(9)
     end
     # 並べ順検索
     # case params[:sort_id]
